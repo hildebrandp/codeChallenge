@@ -1,0 +1,17 @@
+{
+  "name": "codingchallenge",
+  "version": "1.0.0",
+  "description": "Calculate shortest Path",
+  "main": "shortestPath.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "tsc && node app.js calculateShortestPath -s Erde -d b3-r7-r4nd7"
+  },
+  "author": "Pascal Hildebrand <hildebrand.p@outlook.de>",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^12.0.2",
+    "commander": "^2.20.0",
+    "fs": "0.0.1-security"
+  }
+}
