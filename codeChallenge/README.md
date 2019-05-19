@@ -5,10 +5,10 @@ Script that finds the shortest Path between to Nodes in a Graph
 # Usage
 
 To find the shortest path between Erde and b3-r7-r4nd7
-Runs: "tsc && node app.js calculateShortestPath -s Erde -d b3-r7-r4nd7"
 ```
 npm run start
 ```
+Runs: "tsc && node app.js calculateShortestPath -s Erde -d b3-r7-r4nd7"
 
 To find a different Path
 ```
