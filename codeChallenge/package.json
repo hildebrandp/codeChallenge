@@ -4,8 +4,7 @@
   "description": "Calculate shortest Path",
   "main": "shortestPath.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "tsc && node app.js calculateShortestPath -s Erde -d b3-r7-r4nd7"
+    "start": "tsc && node app.js calculateShortestPath -s Erde -d b3-r7-r4nd7 -g 1"
   },
   "author": "Pascal Hildebrand <hildebrand.p@outlook.de>",
   "license": "ISC",

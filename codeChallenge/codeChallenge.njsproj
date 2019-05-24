@@ -34,11 +34,15 @@
   </PropertyGroup>
   <ItemGroup>
     <TypeScriptCompile Include="app.ts" />
+    <Content Include="morenodes.json" />
     <Content Include="nodes.json" />
     <Content Include="package.json" />
     <Content Include="README.md" />
-    <Content Include="testNodes.json" />
     <Content Include="tsconfig.json" />
+    <TypeScriptCompile Include="app_unittest.ts">
+      <SubType>Code</SubType>
+      <TestFramework>ExportRunner</TestFramework>
+    </TypeScriptCompile>
   </ItemGroup>
   <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />

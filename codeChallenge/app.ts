@@ -3,7 +3,7 @@
 * Developed by Pascal Hildebrand
 * hildebrand.p@outlook.de
 *
-* Algorithm for calculating the shortest path between two nodes
+* Algorithm for calculating the shortest path between two nodes in a Graph
 */
 const program = require('commander');
 const fs = require('fs');
@@ -37,17 +37,23 @@ interface nodes {
 * @param graph Graph Number
 */
 const testInput = function (startNode: string, endNode: string, graph: number): void {
-    if (graph === 2) {
-        jsonFile = fs.readFileSync('./morenodes.json');
+    if (graph === 0) {
+        jsonFile = fs.readFileSync('./graphs/lessnodes.json');
+    } else if (graph === 1) {
+        jsonFile = fs.readFileSync('./graphs/nodes.json');
     } else {
-        jsonFile = fs.readFileSync('./nodes.json');
+        jsonFile = fs.readFileSync('./graphs/morenodes.json');
     }
+
     let nodeArray = JSON.parse(jsonFile).nodes;
     let allEdges = JSON.parse(jsonFile).edges;
+
     let findStart: boolean = false;
     let findEnd: boolean = false;
+
     let countNodes: number = 0;
     let countEdges: number = 0;
+
     startTime = Date.now();
 
     /**
@@ -66,6 +72,7 @@ const testInput = function (startNode: string, endNode: string, graph: number): 
         edgesArray.push([]);
         countNodes++;
     });
+
     /**
     * Add every Egde to both Connected Nodes in Array
     */
@@ -74,6 +81,7 @@ const testInput = function (startNode: string, endNode: string, graph: number): 
         edgesArray[edge.target].push(edge);
         countEdges++;
     });
+
     if (!findStart || !findEnd) {
         console.log(`Could not find start or destination Node. Programm exits!`);
         process.exit(-1);
@@ -200,6 +208,12 @@ program
     .action(() => {
         const start_Node: string = program.start;
         const end_Node: string = program.destination;
+
+        if (program.graph !== '0' && program.graph !== '1' && program.graph !== '2') {
+            console.log(`The Graph ${program.graph} does not exists. Prgramm exits. Use 0 for small Graph, 1 for given Grah and 2 for large Graph.`);
+            process.exit(-1);
+        }
+
         const graphNumber: number = +program.graph;
         console.log(`Calculating the shortest Path between start Node: ${start_Node} and destination Node: ${end_Node}`);
         testInput(start_Node, end_Node, graphNumber);
